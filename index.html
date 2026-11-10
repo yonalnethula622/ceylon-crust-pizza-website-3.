@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ceylon Crust Pizza | Taste the Difference</title>
+
+  <meta name="description" content="Discover delicious freshly baked pizzas at Ceylon Crust Pizza. Explore our menu and order online.">
+
+  <meta name="theme-color" content="#090909">
+
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">
+    <p>🍕 Freshly baked, made with love. Welcome to Ceylon Crust Pizza!</p>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <nav class="navbar">
+
+      <a href="#" class="brand">
+        <img src="assets/logo.png" alt="Ceylon Crust Pizza Logo">
+        <span>CEYLON CRUST</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#menu">Our Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#menu" class="nav-order">
+        Order Now <span>↗</span>
+      </a>
+
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+        ☰
+      </button>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <div class="hero-tag">
+          <span class="live-dot"></span>
+          FRESHLY BAKED • FULL OF FLAVOUR
+        </div>
+
+        <h1>
+          GOOD FOOD.<br>
+          GREAT PIZZA.<br>
+          <span>BETTER MOMENTS.</span>
+        </h1>
+
+        <p class="hero-description">
+          Experience the perfect combination of delicious flavours,
+          fresh ingredients and a golden crust.
+          Every pizza is made to make your day better.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#menu" class="btn-primary">
+            Explore Our Menu <span>→</span>
+          </a>
+
+          <a href="#about" class="btn-secondary">
+            Discover Our Story
+          </a>
+        </div>
+
+        <div class="hero-details">
+          <div>
+            <strong>FRESH</strong>
+            <span>Ingredients</span>
+          </div>
+
+          <div>
+            <strong>HOT</strong>
+            <span>Out of the oven</span>
+          </div>
+
+          <div>
+            <strong>MADE</strong>
+            <span>With love</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+
+        <div class="hero-glow"></div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1100"
+            alt="Freshly baked delicious pizza"
+          >
+        </div>
+
+        <div class="floating-card">
+          <span>🍕</span>
+          <div>
+            <strong>Made Fresh</strong>
+            <small>Just for you</small>
+          </div>
+        </div>
+
+        <div class="hero-circle-text">
+          CEYLON CRUST • TASTE THE DIFFERENCE •
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+
+      <div class="feature">
+        <span>🔥</span>
+        <div>
+          <h3>Freshly Baked</h3>
+          <p>Prepared fresh for every order</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span>🧀</span>
+        <div>
+          <h3>Quality Ingredients</h3>
+          <p>Delicious ingredients in every bite</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span>❤️</span>
+        <div>
+          <h3>Made With Love</h3>
+          <p>Great taste and great moments</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section" id="menu">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-label">DISCOVER OUR FLAVOURS</span>
+          <h2>Our Delicious <span>Menu.</span></h2>
+          <p>Find your favourite pizza and get ready for a delicious experience.</p>
+        </div>
+
+        <a href="#menu" class="view-menu">
+          Explore Menu →
+        </a>
+
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="pizza-card">
+
+          <div class="pizza-image">
+            <img
+              src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700"
+              alt="Chicken BBQ pizza"
+              loading="lazy"
+            >
+            <span class="pizza-tag">POPULAR</span>
+          </div>
+
+          <div class="pizza-info">
+            <div class="pizza-title">
+              <h3>Chicken BBQ</h3>
+              <span>🍗</span>
+            </div>
+
+            <p>A delicious combination of chicken, cheese and BBQ flavour.</p>
+
+            <a href="#order" class="pizza-order">
+              Order This Pizza <span>→</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="pizza-card">
+
+          <div class="pizza-image">
+            <img
+              src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=700"
+              alt="Margherita pizza"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="pizza-info">
+            <div class="pizza-title">
+              <h3>Margherita</h3>
+              <span>🍅</span>
+            </div>
+
+            <p>A classic pizza with delicious tomato sauce and mozzarella.</p>
+
+            <a href="#order" class="pizza-order">
+              Order This Pizza <span>→</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="pizza-card">
+
+          <div class="pizza-image">
+            <img
+              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700"
+              alt="Special pizza"
+              loading="lazy"
+            >
+            <span class="pizza-tag">SPECIAL</span>
+          </div>
+
+          <div class="pizza-info">
+            <div class="pizza-title">
+              <h3>Our Special</h3>
+              <span>⭐</span>
+            </div>
+
+            <p>Discover more delicious flavours from Ceylon Crust Pizza.</p>
+
+            <a href="#order" class="pizza-order">
+              Order This Pizza <span>→</span>
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+
+      <div class="about-image">
+        <img src="assets/logo.png" alt="Ceylon Crust Pizza">
+      </div>
+
+      <div class="about-content">
+        <span class="section-label">OUR STORY</span>
+
+        <h2>More Than Just <span>Pizza.</span></h2>
+
+        <p>
+          At Ceylon Crust Pizza, we believe every great moment
+          deserves great food. Our goal is to bring you delicious
+          pizzas, memorable flavours and happiness in every bite.
+        </p>
+
+        <a href="#menu" class="btn-primary">
+          Find Your Favourite →
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ORDER CTA -->
+    <section class="order-section" id="order">
+
+      <div class="order-content">
+        <span class="section-label">YOUR NEXT FAVOURITE IS WAITING</span>
+
+        <h2>Craving Something <span>Delicious?</span></h2>
+
+        <p>Choose your favourite pizza and place your order today.</p>
+
+        <a href="#menu" class="btn-primary">
+          Start Your Order →
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Ceylon Crust Pizza">
+      <h3>CEYLON CRUST PIZZA</h3>
+      <p>Taste the Difference.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Ceylon Crust Pizza. All rights reserved.</p>
+      <span>Made with ❤️ for pizza lovers.</span>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
