@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ceylon Crust Pizza | Taste the Difference</title>
-
   <meta name="description" content="Discover delicious freshly baked pizzas at Ceylon Crust Pizza. Explore our menu and order online.">
-
   <meta name="theme-color" content="#090909">
 
   <link rel="icon" href="assets/logo.png">
@@ -31,7 +29,7 @@
   <header class="header">
     <nav class="navbar">
 
-      <a href="#" class="brand">
+      <a href="#home" class="brand">
         <img src="assets/logo.png" alt="Ceylon Crust Pizza Logo">
         <span>CEYLON CRUST</span>
       </a>
@@ -43,11 +41,11 @@
         <a href="#contact">Contact</a>
       </div>
 
-      <a href="#menu" class="nav-order">
-        Order Now <span>↗</span>
-      </a>
+      <button class="cart-nav-button" id="openCart" type="button">
+        🛒 Cart <span id="cartCount">0</span>
+      </button>
 
-      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false">
         ☰
       </button>
 
@@ -108,7 +106,6 @@
       </div>
 
       <div class="hero-visual">
-
         <div class="hero-glow"></div>
 
         <div class="hero-image">
@@ -129,7 +126,6 @@
         <div class="hero-circle-text">
           CEYLON CRUST • TASTE THE DIFFERENCE •
         </div>
-
       </div>
 
     </section>
@@ -167,99 +163,26 @@
     <section class="menu-section" id="menu">
 
       <div class="section-heading">
-
         <div>
           <span class="section-label">DISCOVER OUR FLAVOURS</span>
           <h2>Our Delicious <span>Menu.</span></h2>
           <p>Find your favourite pizza and get ready for a delicious experience.</p>
         </div>
 
-        <a href="#menu" class="view-menu">
-          Explore Menu →
-        </a>
+        <button class="view-menu" id="refreshMenu" type="button">
+          Refresh Menu ↻
+        </button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <div class="menu-loading">
+          <p>Loading our delicious menu...</p>
+        </div>
 
       </div>
 
-      <div class="menu-grid">
-
-        <article class="pizza-card">
-
-          <div class="pizza-image">
-            <img
-              src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700"
-              alt="Chicken BBQ pizza"
-              loading="lazy"
-            >
-            <span class="pizza-tag">POPULAR</span>
-          </div>
-
-          <div class="pizza-info">
-            <div class="pizza-title">
-              <h3>Chicken BBQ</h3>
-              <span>🍗</span>
-            </div>
-
-            <p>A delicious combination of chicken, cheese and BBQ flavour.</p>
-
-            <a href="#order" class="pizza-order">
-              Order This Pizza <span>→</span>
-            </a>
-          </div>
-
-        </article>
-
-        <article class="pizza-card">
-
-          <div class="pizza-image">
-            <img
-              src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=700"
-              alt="Margherita pizza"
-              loading="lazy"
-            >
-          </div>
-
-          <div class="pizza-info">
-            <div class="pizza-title">
-              <h3>Margherita</h3>
-              <span>🍅</span>
-            </div>
-
-            <p>A classic pizza with delicious tomato sauce and mozzarella.</p>
-
-            <a href="#order" class="pizza-order">
-              Order This Pizza <span>→</span>
-            </a>
-          </div>
-
-        </article>
-
-        <article class="pizza-card">
-
-          <div class="pizza-image">
-            <img
-              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700"
-              alt="Special pizza"
-              loading="lazy"
-            >
-            <span class="pizza-tag">SPECIAL</span>
-          </div>
-
-          <div class="pizza-info">
-            <div class="pizza-title">
-              <h3>Our Special</h3>
-              <span>⭐</span>
-            </div>
-
-            <p>Discover more delicious flavours from Ceylon Crust Pizza.</p>
-
-            <a href="#order" class="pizza-order">
-              Order This Pizza <span>→</span>
-            </a>
-          </div>
-
-        </article>
-
-      </div>
+      <p class="menu-message" id="menuMessage" role="status"></p>
 
     </section>
 
@@ -307,6 +230,159 @@
 
   </main>
 
+  <!-- SHOPPING CART -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" aria-hidden="true">
+
+    <div class="cart-header">
+      <div>
+        <span class="section-label">YOUR SELECTION</span>
+        <h2>Your Cart</h2>
+      </div>
+
+      <button class="close-button" id="closeCart" type="button" aria-label="Close cart">
+        ✕
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">AED 0.00</strong>
+      </div>
+
+      <button class="btn-primary checkout-button" id="checkoutButton" type="button" disabled>
+        Continue to Checkout →
+      </button>
+
+      <button class="clear-cart-button" id="clearCart" type="button">
+        Clear Cart
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- CHECKOUT -->
+  <div class="checkout-overlay" id="checkoutOverlay" hidden>
+
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+
+      <div class="checkout-header">
+        <div>
+          <span class="section-label">ALMOST THERE</span>
+          <h2 id="checkoutTitle">Your Details</h2>
+        </div>
+
+        <button class="close-button" id="closeCheckout" type="button" aria-label="Close checkout">
+          ✕
+        </button>
+      </div>
+
+      <form id="checkoutForm">
+
+        <div class="checkout-order-summary">
+          <h3>Order Summary</h3>
+          <div id="checkoutItems"></div>
+
+          <div class="cart-total-row">
+            <span>Total</span>
+            <strong id="checkoutTotal">AED 0.00</strong>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="customerName">Full Name *</label>
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter your full name"
+            maxlength="80"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="customerPhone">Phone Number *</label>
+          <input
+            type="tel"
+            id="customerPhone"
+            name="customerPhone"
+            placeholder="+971 5X XXX XXXX"
+            maxlength="25"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="customerEmail">Email Address (Optional)</label>
+          <input
+            type="email"
+            id="customerEmail"
+            name="customerEmail"
+            placeholder="your@email.com"
+            maxlength="120"
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Order Type *</label>
+
+          <div class="order-type-options">
+            <label class="order-type-option">
+              <input type="radio" name="orderType" value="Collection" checked>
+              <span>🏃 Collection</span>
+            </label>
+
+            <label class="order-type-option">
+              <input type="radio" name="orderType" value="Delivery">
+              <span>🛵 Delivery</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="deliveryAreaGroup" hidden>
+          <label for="deliveryArea">Delivery Area *</label>
+          <select id="deliveryArea" name="deliveryArea">
+            <option value="">Select your delivery area</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="deliveryAddressGroup" hidden>
+          <label for="deliveryAddress">Delivery Address *</label>
+          <textarea
+            id="deliveryAddress"
+            name="deliveryAddress"
+            rows="3"
+            maxlength="300"
+            placeholder="Enter your building, street and apartment details"
+          ></textarea>
+        </div>
+
+        <p class="checkout-error" id="checkoutError" role="alert"></p>
+
+        <button class="btn-primary send-order-button" id="sendOrderButton" type="submit">
+          Send Order Confirmation via WhatsApp →
+        </button>
+
+        <p class="checkout-note">
+          WhatsApp will open with your order details. Please review the message and press Send.
+        </p>
+
+      </form>
+
+    </section>
+
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer" id="contact">
 
@@ -320,7 +396,12 @@
       <a href="#home">Home</a>
       <a href="#menu">Menu</a>
       <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
+      <a href="mailto:ceyloncrustpizza@gmail.com">Email Us</a>
+    </div>
+
+    <div class="footer-contact">
+      <p>WhatsApp: <a href="https://wa.me/971567328102" target="_blank" rel="noopener">+971 56 732 8102</a></p>
+      <p>Email: <a href="mailto:ceyloncrustpizza@gmail.com">ceyloncrustpizza@gmail.com</a></p>
     </div>
 
     <div class="footer-bottom">
@@ -330,7 +411,7 @@
 
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 
 </body>
 </html>
