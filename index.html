@@ -1,96 +1,121 @@
-/* =========================================
-   CEYLON CRUST PIZZA
-   COMPLETE PREMIUM WEBSITE STYLESHEET
-========================================= */
+  .order-content h2 {
+    font-size: 34px;
+  }
 
-:root {
-  --black: #080808;
-  --dark: #101010;
-  --dark-card: #171717;
-  --orange: #ff6418;
-  --gold: #ffbd35;
-  --red: #e51d16;
-  --white: #ffffff;
-  --muted: #a6a6a6;
-  --border: rgba(255,255,255,.09);
-  --green: #48c78e;
-  --shadow: 0 22px 70px rgba(0,0,0,.42);
+  .section-heading p,
+  .about-content p,
+  .order-content p {
+    font-size: 12px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .menu-card-image,
+  .pizza-image,
+  .menu-card img,
+  .pizza-card img {
+    height: 210px;
+  }
+
+  .about-section {
+    width: calc(100% - 34px);
+    margin-bottom: 55px;
+    padding: 25px 20px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .about-image {
+    min-height: 190px;
+  }
+
+  .about-image img {
+    width: 180px;
+    max-height: 180px;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .order-section {
+    width: calc(100% - 34px);
+    margin-bottom: 55px;
+    padding: 45px 18px;
+  }
+
+  .footer {
+    padding: 40px 22px 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 18px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .cart-panel {
+    padding: 20px;
+  }
+
+  .checkout-overlay {
+    padding: 10px;
+    align-items: start;
+  }
+
+  .checkout-modal {
+    max-height: calc(100dvh - 20px);
+    padding: 19px;
+    border-radius: 12px;
+  }
+
+  .checkout-header h2 {
+    font-size: 24px;
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* SMALL PHONES */
+@media (max-width: 380px) {
+  .brand {
+    font-size: 10px;
+  }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
+  .brand img {
+    width: 37px;
+    height: 37px;
+  }
 
-body {
-  min-width: 320px;
-  font-family: 'DM Sans', sans-serif;
-  background: var(--black);
-  color: var(--white);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+  .cart-nav-button {
+    gap: 5px;
+    padding: 8px;
+  }
 
-body.no-scroll {
-  overflow: hidden;
-}
+  .hero h1 {
+    font-size: 36px;
+  }
 
-button, input, select, textarea {
-  font: inherit;
-}
+  .hero-buttons {
+    flex-direction: column;
+  }
 
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
+  .hero-buttons a {
+    width: 100%;
+  }
 
-button {
-  cursor: pointer;
-}
+  .footer {
+    grid-template-columns: 1fr;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
+  .footer-brand,
+  .footer-bottom {
+    grid-column: auto;
+  }
 }
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-/* ANNOUNCEMENT */
-.announcement {
-  position: relative;
-  z-index: 1001;
-  padding: 9px 16px;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(90deg, #98170e, #ed4a0b, #98170e);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .45px;
-}
-
-/* NAVIGATION */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(8,8,8,.93);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-  width: min(1350px, 100%);
-  min-height: 82px;
